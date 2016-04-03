@@ -146,7 +146,7 @@ function chooseRandom() {
 }
 
 function computerTurn() {
-  for (var i = 0; i < playerTurns + 1; i++) {
+  for (var i = 0; i < 1; i++) {
       chooseRandom();
     }
     toggleTurn=1;
@@ -154,36 +154,30 @@ function computerTurn() {
 }
 
 function comparePattern() {
-  console.log("computer pattern length= "+computerPattern.length);
-  console.log("player pattern length= "+playerPattern.length);
   console.log('computerPattern = '+ computerPattern);
   console.log('playerPattern = '+ playerPattern);
   var computerPatternCompare;
   var playerPatternCompare;
-
   for(var i=0;i<computerPattern.length; i++) {
     computerPatternCompare = computerPattern[i];
     playerPatternCompare = playerPattern[i];
-
   }
   if (computerPattern.length > playerPattern.length) {
     playerTurn();
   } else if (playerPatternCompare === computerPatternCompare) {
     console.log("msg1: player pattern ="+playerPattern + "computerPattern ="+ computerPattern);
-    //toggleTurn = 0;
+    playerTurns++;
+    // toggleTurn = 0;
     computerTurn();
   } else {
-    console.log("msg2: player pattern ="+playerPattern + "." + " computerPattern ="+ computerPattern);
+    console.log("Game Over. Your Score is "+playerTurns);
     //computerTurn();
   }
-  console.log('player compare = '+playerPatternCompare);
-  console.log('computerPatternCompare = '+computerPatternCompare);
 }
 
 function playerTurn() {
   if (computerPattern.length === playerPattern.length) {
     comparePattern();
-
   } else {
   toggleTurn = 1;
   }
