@@ -30,7 +30,7 @@ document.getElementById('b2').addEventListener("click", function(event) {
     console.log("computer pattern ="+computerPattern);
     } else {
       playerPattern.push('b2');
-      console.log(playerPattern);
+      playerTurn();
       console.log("playerPattern ="+playerPattern);
     }
 });
@@ -42,7 +42,7 @@ document.getElementById('b3').addEventListener("click", function(event) {
     console.log("computer pattern ="+computerPattern);
     } else {
       playerPattern.push('b3');
-      console.log(playerPattern);
+      playerTurn();
       console.log("playerPattern ="+playerPattern);
     }
 });
@@ -54,7 +54,7 @@ document.getElementById('b4').addEventListener("click", function(event) {
     console.log("computer pattern ="+computerPattern);
     } else {
       playerPattern.push('b4');
-      console.log(playerPattern);
+      playerTurn();
       console.log("playerPattern ="+playerPattern);
     }
 });
@@ -66,7 +66,7 @@ document.getElementById('b5').addEventListener("click", function(event) {
     console.log("computer pattern ="+computerPattern);
     } else {
       playerPattern.push('b5');
-      console.log(playerPattern);
+      playerTurn();
       console.log("playerPattern ="+playerPattern);
     }
 });
@@ -78,7 +78,7 @@ document.getElementById('b6').addEventListener("click", function(event) {
     console.log("computer pattern ="+computerPattern);
     } else {
       playerPattern.push('b6');
-      console.log(playerPattern);
+      playerTurn();
       console.log("playerPattern ="+playerPattern);
     }
 });
@@ -90,7 +90,7 @@ document.getElementById('b7').addEventListener("click", function(event) {
     console.log("computer pattern ="+computerPattern);
     } else {
       playerPattern.push('b7');
-      console.log(playerPattern);
+      playerTurn();
       console.log("playerPattern ="+playerPattern);
     }
 });
@@ -102,7 +102,7 @@ document.getElementById('b8').addEventListener("click", function(event) {
     console.log("computer pattern ="+computerPattern);
     } else {
       playerPattern.push('b8');
-      console.log(playerPattern);
+      playerTurn();
       console.log("playerPattern ="+playerPattern);
     }
 });
@@ -114,7 +114,7 @@ document.getElementById('b9').addEventListener("click", function(event) {
     console.log("computer pattern ="+computerPattern);
     } else {
       playerPattern.push('b9');
-      console.log(playerPattern);
+      playerTurn();
       console.log("playerPattern ="+playerPattern);
     }
 });
@@ -158,16 +158,26 @@ function comparePattern() {
   console.log("player pattern length= "+playerPattern.length);
   console.log('computerPattern = '+ computerPattern);
   console.log('playerPattern = '+ playerPattern);
+  var computerPatternCompare;
+  var playerPatternCompare;
+
+  for(var i=0;i<computerPattern.length; i++) {
+    computerPatternCompare = computerPattern[i];
+    playerPatternCompare = playerPattern[i];
+
+  }
   if (computerPattern.length > playerPattern.length) {
     playerTurn();
-  } else if (playerPattern == computerPattern) {
+  } else if (playerPatternCompare === computerPatternCompare) {
     console.log("msg1: player pattern ="+playerPattern + "computerPattern ="+ computerPattern);
     //toggleTurn = 0;
-    //computerTurn();
+    computerTurn();
   } else {
     console.log("msg2: player pattern ="+playerPattern + "." + " computerPattern ="+ computerPattern);
     //computerTurn();
   }
+  console.log('player compare = '+playerPatternCompare);
+  console.log('computerPatternCompare = '+computerPatternCompare);
 }
 
 function playerTurn() {
@@ -177,6 +187,8 @@ function playerTurn() {
   } else {
   toggleTurn = 1;
   }
+  console.log('toggleturn =' + toggleTurn);
 }
 
 computerTurn();
+
