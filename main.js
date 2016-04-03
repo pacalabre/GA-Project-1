@@ -18,7 +18,7 @@ document.getElementById('b1').addEventListener("click", function(event) {
     console.log("computer pattern ="+computerPattern);
     } else {
       playerPattern.push('b1');
-      console.log(playerPattern);
+      playerTurn();
       console.log("playerPattern ="+playerPattern);
     }
 });
@@ -141,23 +141,42 @@ function playBack() {
 function chooseRandom() {
   var buttons = ['b1','b2','b3','b4','b5','b6','b7','b8','b9'];
   var random = buttons[Math.floor(Math.random()*buttons.length)];
-  console.log(random);
+  computerPattern.push(random);
+  console.log(computerPattern);
 }
 
 function computerTurn() {
-  for (var i=0; i < playerTurns + 1; i++) {
+  for (var i = 0; i < playerTurns + 1; i++) {
       chooseRandom();
     }
-    playerTurns++;
     toggleTurn=1;
+    playerTurn();
 }
 
 function comparePattern() {
-  if (playerPattern === computerPattern) {
-    computerTurn();
+  console.log("computer pattern length= "+computerPattern.length);
+  console.log("player pattern length= "+playerPattern.length);
+  console.log('computerPattern = '+ computerPattern);
+  console.log('playerPattern = '+ playerPattern);
+  if (computerPattern.length > playerPattern.length) {
+    playerTurn();
+  } else if (playerPattern == computerPattern) {
+    console.log("msg1: player pattern ="+playerPattern + "computerPattern ="+ computerPattern);
+    //toggleTurn = 0;
+    //computerTurn();
   } else {
-    console.log("your score is "+ playerTurns);
+    console.log("msg2: player pattern ="+playerPattern + "." + " computerPattern ="+ computerPattern);
+    //computerTurn();
   }
-console.log(playerTurns);
 }
+
+function playerTurn() {
+  if (computerPattern.length === playerPattern.length) {
+    comparePattern();
+
+  } else {
+  toggleTurn = 1;
+  }
+}
+
 computerTurn();
