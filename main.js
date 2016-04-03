@@ -2,84 +2,129 @@
 // Think about ways to make it more complex - ie high score, added buttons, on/off, sampler option, free style mode, button controls
 // Build out from there
 
+var toggleTurn = 0;
+var playerTurns = 0;
+var computerPattern = [];
+var playerPattern = [];
 
-var buttonPattern = [];
-var buttons = ['b1','b2','b3','b4','b5','b6','b7','b8','b9'];
 
-//Creating one function for each button - will reduce this one the game is working
+//Button Assignments
+//Creating one function for each button - will reduce this once the game is working
+
 document.getElementById('b1').addEventListener("click", function(event) {
   event.preventDefault();
-  console.log("clicked");
-  buttonPattern.push('b1');
-  console.log(buttonPattern);
+  if(toggleTurn === 0) {
+    computerPattern.push('b1');
+    console.log("computer pattern ="+computerPattern);
+    } else {
+      playerPattern.push('b1');
+      console.log(playerPattern);
+      console.log("playerPattern ="+playerPattern);
+    }
 });
 
-document.getElementById('b2').addEventListener("click", function(event){
+document.getElementById('b2').addEventListener("click", function(event) {
   event.preventDefault();
-  console.log("clicked");
-  buttonPattern.push('b2');
-  console.log(buttonPattern);
+  if(toggleTurn === 0) {
+    computerPattern.push('b2');
+    console.log("computer pattern ="+computerPattern);
+    } else {
+      playerPattern.push('b2');
+      console.log(playerPattern);
+      console.log("playerPattern ="+playerPattern);
+    }
 });
 
-document.getElementById('b3').addEventListener("click", function(event){
+document.getElementById('b3').addEventListener("click", function(event) {
   event.preventDefault();
-  console.log("clicked");
-  buttonPattern.push('b3');
-  console.log(buttonPattern);
+  if(toggleTurn === 0) {
+    computerPattern.push('b3');
+    console.log("computer pattern ="+computerPattern);
+    } else {
+      playerPattern.push('b3');
+      console.log(playerPattern);
+      console.log("playerPattern ="+playerPattern);
+    }
 });
 
-document.getElementById('b4').addEventListener("click", function(event){
+document.getElementById('b4').addEventListener("click", function(event) {
   event.preventDefault();
-  console.log("clicked");
-  buttonPattern.push('b4');
-  console.log(buttonPattern);
+  if(toggleTurn === 0) {
+    computerPattern.push('b4');
+    console.log("computer pattern ="+computerPattern);
+    } else {
+      playerPattern.push('b4');
+      console.log(playerPattern);
+      console.log("playerPattern ="+playerPattern);
+    }
 });
 
-document.getElementById('b5').addEventListener("click", function(event){
+document.getElementById('b5').addEventListener("click", function(event) {
   event.preventDefault();
-  console.log("clicked");
-  buttonPattern.push('b5');
-  console.log(buttonPattern);
+  if(toggleTurn === 0) {
+    computerPattern.push('b5');
+    console.log("computer pattern ="+computerPattern);
+    } else {
+      playerPattern.push('b5');
+      console.log(playerPattern);
+      console.log("playerPattern ="+playerPattern);
+    }
 });
 
-document.getElementById('b6').addEventListener("click", function(event){
+document.getElementById('b6').addEventListener("click", function(event) {
   event.preventDefault();
-  console.log("clicked");
-  buttonPattern.push('b6');
-  console.log(buttonPattern);
+  if(toggleTurn === 0) {
+    computerPattern.push('b6');
+    console.log("computer pattern ="+computerPattern);
+    } else {
+      playerPattern.push('b6');
+      console.log(playerPattern);
+      console.log("playerPattern ="+playerPattern);
+    }
 });
 
-document.getElementById('b7').addEventListener("click", function(event){
+document.getElementById('b7').addEventListener("click", function(event) {
   event.preventDefault();
-  console.log("clicked");
-  buttonPattern.push('b7');
-  console.log(buttonPattern);
+  if(toggleTurn === 0) {
+    computerPattern.push('b7');
+    console.log("computer pattern ="+computerPattern);
+    } else {
+      playerPattern.push('b7');
+      console.log(playerPattern);
+      console.log("playerPattern ="+playerPattern);
+    }
 });
 
-document.getElementById('b8').addEventListener("click", function(event){
+document.getElementById('b8').addEventListener("click", function(event) {
   event.preventDefault();
-  console.log("clicked");
-  buttonPattern.push('b8');
-  console.log(buttonPattern);
+  if(toggleTurn === 0) {
+    computerPattern.push('b8');
+    console.log("computer pattern ="+computerPattern);
+    } else {
+      playerPattern.push('b8');
+      console.log(playerPattern);
+      console.log("playerPattern ="+playerPattern);
+    }
 });
 
-document.getElementById('b9').addEventListener("click", function(event){
+document.getElementById('b9').addEventListener("click", function(event) {
   event.preventDefault();
-  console.log("clicked");
-  buttonPattern.push('b9');
-  console.log(buttonPattern);
+  if(toggleTurn === 0) {
+    computerPattern.push('b9');
+    console.log("computer pattern ="+computerPattern);
+    } else {
+      playerPattern.push('b9');
+      console.log(playerPattern);
+      console.log("playerPattern ="+playerPattern);
+    }
 });
 
-//Playback and clear button
+//Other Buttons
 
 document.getElementById('playBack').addEventListener('click', function(event){
   event.preventDefault();
   playBack();
 });
-
-function playBack() {
-  console.log(buttonPattern);
-}
 
 document.getElementById('clear').addEventListener('click', function(event){
   event.preventDefault();
@@ -87,10 +132,32 @@ document.getElementById('clear').addEventListener('click', function(event){
   console.log(buttonPattern);
 })
 
-function computerTurn() {
+//Functions
+
+function playBack() {
+  console.log(computerPattern);
+}
+
+function chooseRandom() {
+  var buttons = ['b1','b2','b3','b4','b5','b6','b7','b8','b9'];
   var random = buttons[Math.floor(Math.random()*buttons.length)];
   console.log(random);
 }
 
-computerTurn();
+function computerTurn() {
+  for (var i=0; i < playerTurns + 1; i++) {
+      chooseRandom();
+    }
+    playerTurns++;
+    toggleTurn=1;
+}
 
+function comparePattern() {
+  if (playerPattern === computerPattern) {
+    computerTurn();
+  } else {
+    console.log("your score is "+ playerTurns);
+  }
+console.log(playerTurns);
+}
+computerTurn();
