@@ -59,66 +59,6 @@ document.getElementById('b4').addEventListener("click", function(event) {
     }
 });
 
-document.getElementById('b5').addEventListener("click", function(event) {
-  event.preventDefault();
-  if(toggleTurn === 0) {
-    computerPattern.push('b5');
-    console.log("computer pattern ="+computerPattern);
-    } else {
-      playerPattern.push('b5');
-      playerTurn();
-      console.log("playerPattern ="+playerPattern);
-    }
-});
-
-document.getElementById('b6').addEventListener("click", function(event) {
-  event.preventDefault();
-  if(toggleTurn === 0) {
-    computerPattern.push('b6');
-    console.log("computer pattern ="+computerPattern);
-    } else {
-      playerPattern.push('b6');
-      playerTurn();
-      console.log("playerPattern ="+playerPattern);
-    }
-});
-
-document.getElementById('b7').addEventListener("click", function(event) {
-  event.preventDefault();
-  if(toggleTurn === 0) {
-    computerPattern.push('b7');
-    console.log("computer pattern ="+computerPattern);
-    } else {
-      playerPattern.push('b7');
-      playerTurn();
-      console.log("playerPattern ="+playerPattern);
-    }
-});
-
-document.getElementById('b8').addEventListener("click", function(event) {
-  event.preventDefault();
-  if(toggleTurn === 0) {
-    computerPattern.push('b8');
-    console.log("computer pattern ="+computerPattern);
-    } else {
-      playerPattern.push('b8');
-      playerTurn();
-      console.log("playerPattern ="+playerPattern);
-    }
-});
-
-document.getElementById('b9').addEventListener("click", function(event) {
-  event.preventDefault();
-  if(toggleTurn === 0) {
-    computerPattern.push('b9');
-    console.log("computer pattern ="+computerPattern);
-    } else {
-      playerPattern.push('b9');
-      playerTurn();
-      console.log("playerPattern ="+playerPattern);
-    }
-});
-
 //Other Buttons
 
 document.getElementById('playBack').addEventListener('click', function(event){
@@ -139,7 +79,7 @@ function playBack() {
 }
 
 function chooseRandom() {
-  var buttons = ['b1','b2','b3','b4','b5','b6','b7','b8','b9'];
+  var buttons = ['b1','b2','b3','b4'];
   var random = buttons[Math.floor(Math.random()*buttons.length)];
   computerPattern.push(random);
   console.log(computerPattern);
