@@ -17,7 +17,7 @@ document.getElementById('b1').addEventListener("click", function(event) {
     console.log("computer pattern ="+computerPattern);
     } else {
       playerPattern.push('b1');
-      playerTurn();
+      comparePattern();
       console.log("playerPattern ="+playerPattern);
     }
 });
@@ -29,7 +29,7 @@ document.getElementById('b2').addEventListener("click", function(event) {
     console.log("computer pattern ="+computerPattern);
     } else {
       playerPattern.push('b2');
-      playerTurn();
+      comparePattern();
       console.log("playerPattern ="+playerPattern);
     }
 });
@@ -41,7 +41,7 @@ document.getElementById('b3').addEventListener("click", function(event) {
     console.log("computer pattern ="+computerPattern);
     } else {
       playerPattern.push('b3');
-      playerTurn();
+      comparePattern();
       console.log("playerPattern ="+playerPattern);
     }
 });
@@ -53,7 +53,7 @@ document.getElementById('b4').addEventListener("click", function(event) {
     console.log("computer pattern ="+computerPattern);
     } else {
       playerPattern.push('b4');
-      playerTurn();
+      comparePattern();
       console.log("playerPattern ="+playerPattern);
     }
 });
@@ -64,12 +64,6 @@ document.getElementById('playBack').addEventListener('click', function(event){
   event.preventDefault();
   playBack();
 });
-
-document.getElementById('clear').addEventListener('click', function(event){
-  event.preventDefault();
-  buttonPattern = [];
-  console.log(buttonPattern);
-})
 
 //Functions
 
@@ -89,40 +83,28 @@ function computerTurn() {
       chooseRandom();
     }
     toggleTurn=1;
-    playerTurn();
 }
 
 function comparePattern() {
-  console.log('computerPattern = '+ computerPattern);
-  console.log('playerPattern = '+ playerPattern);
+
   var computerPatternCompare;
   var playerPatternCompare;
   for(var i=0;i<computerPattern.length; i++) {
     computerPatternCompare = computerPattern[i];
     playerPatternCompare = playerPattern[i];
-  }
-  if (computerPattern.length > playerPattern.length) {
-    playerTurn();
-  } else if (playerPatternCompare === computerPatternCompare) {
-    console.log("msg1: player pattern ="+playerPattern + "computerPattern ="+ computerPattern);
-    playerTurns++;
-    toggleTurn = 0;
-    playerPattern = [];
-    computerTurn();
-  } else {
-    alert("Game Over. Your Score is "+playerTurns);
-    //computerTurn();
+    if (computerPattern.length > playerPattern.length) {
+      console.log("player keeps playing");
+    } else if (playerPatternCompare === computerPatternCompare) {
+      console.log("msg1: player pattern ="+playerPattern);
+      playerTurns++;
+      toggleTurn = 0;
+      playerPattern = [];
+      computerTurn();
+    } else {
+      alert("game over, your score is"+ playerTurns);
+    }
   }
 }
 
-function playerTurn() {
-  if (computerPattern.length === playerPattern.length) {
-    comparePattern();
-  } else {
-  toggleTurn = 1;
-  }
-  console.log('toggleturn =' + toggleTurn);
-}
 
 computerTurn();
-
