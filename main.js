@@ -7,7 +7,6 @@ var playerTurns = 0;
 var computerPattern = [];
 var playerPattern = [];
 
-
 //Button Assignments
 //Creating one function for each button - will reduce this once the game is working
 
@@ -107,10 +106,11 @@ function comparePattern() {
   } else if (playerPatternCompare === computerPatternCompare) {
     console.log("msg1: player pattern ="+playerPattern + "computerPattern ="+ computerPattern);
     playerTurns++;
-    // toggleTurn = 0;
+    toggleTurn = 0;
+    playerPattern = [];
     computerTurn();
   } else {
-    console.log("Game Over. Your Score is "+playerTurns);
+    alert("Game Over. Your Score is "+playerTurns);
     //computerTurn();
   }
 }
