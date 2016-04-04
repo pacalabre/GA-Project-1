@@ -116,11 +116,9 @@ function playComputerPattern() {
 }
 
 function computerTurn() {
-  for (var i = 0; i < 1; i++) {
     toggleTurn = 0;
-      playComputerPattern();
-      setTimeout(chooseRandom(),1000);
-    }
+    playComputerPattern();
+    setTimeout(chooseRandom(),1000);
     return toggleTurn=1;
 }
 
