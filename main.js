@@ -13,7 +13,7 @@ var playerPattern = [];
 document.getElementById('b1').addEventListener("click", function(event) {
   event.preventDefault();
   if(toggleTurn === 0) {
-    playPadCymbal()
+    // setTimeout(playPadCymbal(),1000);
     computerPattern.push('b1');
     console.log("computer pattern ="+computerPattern);
     console.log('toggleTurn = '+toggleTurn);
@@ -29,7 +29,7 @@ document.getElementById('b1').addEventListener("click", function(event) {
 document.getElementById('b2').addEventListener("click", function(event) {
   event.preventDefault();
   if(toggleTurn === 0) {
-    playPadHighHat();
+    // setTimeout(playPadHighHat(),1000);
     computerPattern.push('b2');
     console.log("computer pattern ="+computerPattern);
     console.log('toggleTurn = '+toggleTurn);
@@ -45,7 +45,7 @@ document.getElementById('b2').addEventListener("click", function(event) {
 document.getElementById('b3').addEventListener("click", function(event) {
   event.preventDefault();
   if(toggleTurn === 0) {
-    playPadSnare();
+    // setTimeout(playPadSnare(),1000);
     computerPattern.push('b3');
     console.log("computer pattern ="+computerPattern);
     console.log('toggleTurn = '+toggleTurn);
@@ -61,7 +61,7 @@ document.getElementById('b3').addEventListener("click", function(event) {
 document.getElementById('b4').addEventListener("click", function(event) {
   event.preventDefault();
   if(toggleTurn === 0) {
-    playPadKick();
+    // setTimeout(playPadKick(),1000);
     computerPattern.push('b4');
     console.log("computer pattern ="+computerPattern);
     console.log('toggleTurn = '+toggleTurn);
@@ -101,16 +101,16 @@ function playComputerPattern() {
   //play back each button in var computerPattern
   console.log(computerPattern);
 
-  for( var i = 0; i < computerPattern.length;i++){
+  for( var i = 0; i < computerPattern.length; i++){
 
     if (computerPattern[i] === 'b1') {
-      playPadCymbal();
+      setTimeout(playPadCymbal(), 1000);
     } else if(computerPattern[i] === 'b2') {
-      playPadHighHat();
+      setTimeout(playPadHighHat(), 1000);
     }else if(computerPattern[i] === 'b3') {
-      playPadSnare();
+      setTimeout(playPadSnare(), 1000);
     }else if (computerPattern[i] === 'b4') {
-      playPadKick();
+      setTimeout(playPadKick(),1000);
     }
   }
 }
@@ -119,7 +119,7 @@ function computerTurn() {
   for (var i = 0; i < 1; i++) {
     toggleTurn = 0;
       playComputerPattern();
-      chooseRandom();
+      setTimeout(chooseRandom(),1000);
     }
     return toggleTurn=1;
 }
