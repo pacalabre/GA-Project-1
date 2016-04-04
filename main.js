@@ -82,24 +82,25 @@ function playBack() {
 function chooseRandom() {
   var buttons = ['b1','b2','b3','b4'];
   var random = buttons[Math.floor(Math.random()*buttons.length)];
-  computerPattern.push(random);
+  $('#'+random).trigger('click');
+  console.log('random ='+random)
   console.log("computer generates a random number: "+computerPattern);
 }
 
 function playComputerPattern() {
   //Set interval one second apart from each other
   //play back each button in var computerPattern
-  $('#b1').trigger('click');
-  $('#b2').trigger('click');
-  $('#b3').trigger('click');
-  $('#b4').trigger('click');
+  // $('#b1').trigger('click');
+  // $('#b2').trigger('click');
+  // $('#b3').trigger('click');
+  // $('#b4').trigger('click');
 
 }
 
 function computerTurn() {
   for (var i = 0; i < 1; i++) {
-      chooseRandom();
       playComputerPattern();
+      chooseRandom();
     }
     return toggleTurn=1;
 }
