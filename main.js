@@ -90,17 +90,26 @@ function chooseRandom() {
 function playComputerPattern() {
   //Set interval one second apart from each other
   //play back each button in var computerPattern
-  // $('#b1').trigger('click');
-  // $('#b2').trigger('click');
-  // $('#b3').trigger('click');
-  // $('#b4').trigger('click');
+  console.log(computerPattern);
 
+  for( var i = 0; i < computerPattern.length;i++){
+    if (computerPattern === 'b1') {
+      playPadCymbal();
+    } else if(computerPattern === 'b2') {
+      playPadHighHat();
+    }else if(computerPattern === 'b3') {
+      playPadSnare();
+    }else if (computerPattern === 'b4') {
+      playPadKick();
+    }
+  }
 }
 
 function computerTurn() {
   for (var i = 0; i < 1; i++) {
       playComputerPattern();
       chooseRandom();
+      //for testing only
     }
     return toggleTurn=1;
 }
@@ -152,8 +161,5 @@ function comparePattern() {
     audioButton.src = 'http://www.universal-soundbank.com/802a/805020000000000000000000000pkjn800000000000000000000000000000090/g/85055050505050505050505/k/8746.mp3';
     audioButton.play();
   }
-
-
-
 
 computerTurn();
