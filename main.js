@@ -96,29 +96,29 @@ function chooseRandom() {
   console.log('toggleTurn = '+ toggleTurn);
 }
 
-// function playComputerPattern() {
-//   //Set interval one second apart from each other
-//   //play back each button in var computerPattern
-//   console.log(computerPattern);
+function playComputerPattern() {
+  //Set interval one second apart from each other
+  //play back each button in var computerPattern
+  console.log(computerPattern);
 
-//   for( var i = 0; i < computerPattern.length;i++){
+  for( var i = 0; i < computerPattern.length;i++){
 
-//     if (computerPattern[i] === 'b1') {
-//       playPadCymbal();
-//     } else if(computerPattern[i] === 'b2') {
-//       playPadHighHat();
-//     }else if(computerPattern[i] === 'b3') {
-//       playPadSnare();
-//     }else if (computerPattern[i] === 'b4') {
-//       playPadKick();
-//     }
-//   }
-// }
+    if (computerPattern[i] === 'b1') {
+      playPadCymbal();
+    } else if(computerPattern[i] === 'b2') {
+      playPadHighHat();
+    }else if(computerPattern[i] === 'b3') {
+      playPadSnare();
+    }else if (computerPattern[i] === 'b4') {
+      playPadKick();
+    }
+  }
+}
 
 function computerTurn() {
   for (var i = 0; i < 1; i++) {
     toggleTurn = 0;
-      // playComputerPattern();
+      playComputerPattern();
       chooseRandom();
     }
     return toggleTurn=1;
