@@ -16,10 +16,12 @@ document.getElementById('b1').addEventListener("click", function(event) {
     playPadCymbal()
     computerPattern.push('b1');
     console.log("computer pattern ="+computerPattern);
+    console.log('toggleTurn = '+toggleTurn);
     } else {
       playPadCymbal()
       playerPattern.push('b1');
       console.log("player plays back number = "+playerPattern);
+      console.log('toggleTurn = '+toggleTurn);
       comparePattern();
     }
 });
@@ -30,10 +32,12 @@ document.getElementById('b2').addEventListener("click", function(event) {
     playPadHighHat();
     computerPattern.push('b2');
     console.log("computer pattern ="+computerPattern);
+    console.log('toggleTurn = '+toggleTurn);
     } else {
       playPadHighHat();
       playerPattern.push('b2');
       console.log("player plays back number = "+playerPattern);
+      console.log('toggleTurn = '+toggleTurn);
       comparePattern();
     }
 });
@@ -44,10 +48,12 @@ document.getElementById('b3').addEventListener("click", function(event) {
     playPadSnare();
     computerPattern.push('b3');
     console.log("computer pattern ="+computerPattern);
+    console.log('toggleTurn = '+toggleTurn);
     } else {
       playPadSnare();
       playerPattern.push('b3');
       console.log("player plays back number = "+playerPattern);
+      console.log('toggleTurn = '+toggleTurn);
       comparePattern();
     }
 });
@@ -58,10 +64,12 @@ document.getElementById('b4').addEventListener("click", function(event) {
     playPadKick();
     computerPattern.push('b4');
     console.log("computer pattern ="+computerPattern);
+    console.log('toggleTurn = '+toggleTurn);
     } else {
       playPadKick();
       playerPattern.push('b4');
       console.log("player plays back number = "+playerPattern);
+      console.log('toggleTurn = '+toggleTurn);
       comparePattern();
     }
 });
@@ -85,31 +93,33 @@ function chooseRandom() {
   $('#'+random).trigger('click');
   console.log('random ='+random)
   console.log("computer generates a random number: "+computerPattern);
+  console.log('toggleTurn = '+ toggleTurn);
 }
 
-function playComputerPattern() {
-  //Set interval one second apart from each other
-  //play back each button in var computerPattern
-  console.log(computerPattern);
+// function playComputerPattern() {
+//   //Set interval one second apart from each other
+//   //play back each button in var computerPattern
+//   console.log(computerPattern);
 
-  for( var i = 0; i < computerPattern.length;i++){
-    if (computerPattern === 'b1') {
-      playPadCymbal();
-    } else if(computerPattern === 'b2') {
-      playPadHighHat();
-    }else if(computerPattern === 'b3') {
-      playPadSnare();
-    }else if (computerPattern === 'b4') {
-      playPadKick();
-    }
-  }
-}
+//   for( var i = 0; i < computerPattern.length;i++){
+
+//     if (computerPattern[i] === 'b1') {
+//       playPadCymbal();
+//     } else if(computerPattern[i] === 'b2') {
+//       playPadHighHat();
+//     }else if(computerPattern[i] === 'b3') {
+//       playPadSnare();
+//     }else if (computerPattern[i] === 'b4') {
+//       playPadKick();
+//     }
+//   }
+// }
 
 function computerTurn() {
   for (var i = 0; i < 1; i++) {
-      playComputerPattern();
+    toggleTurn = 0;
+      // playComputerPattern();
       chooseRandom();
-      //for testing only
     }
     return toggleTurn=1;
 }
