@@ -91,22 +91,23 @@ function comparePattern() {
   if (computerPattern.length > playerPattern.length) {
       console.log("player keeps playing");
     }
-  for(var i=0;i<computerPattern.length; i++) {
-    for(var j=0; j< playerPattern.length; j++) {
-      if (computerPattern[i] === playerPattern[j]) {
-      console.log("the numbers matched up "+"player number = "+playerPattern[i]+ "computer number = "+computerPattern[i]);
-      playerTurns++;
-      console.log(playerTurns);
-      toggleTurn = 1;
-      playerPattern = [];
-      computerTurn();
-      } else {
-      alert("game over, your score is "+ playerTurns);
-      return;
-      }
+  if (computerPattern.length === playerPattern.length) {
+    for(var i = 0; i < computerPattern.length; i++) {
+      computerPatternCompare = computerPattern[i];
+      playerPatternCompare = playerPattern[i];
+        if (computerPatternCompare != playerPatternCompare) {
+          return alert("game over, your score is "+ playerTurns);
+        }
     }
+    console.log("the numbers matched up "+"player number = "+computerPatternCompare+ "computer number = "+playerPatternCompare);
+    playerTurns++;
+    console.log(playerTurns);
+    toggleTurn = 1;
+    playerPattern = [];
+    computerTurn();
   }
 }
+
 
 
 computerTurn();
