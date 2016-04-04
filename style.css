@@ -46,6 +46,17 @@ body {
   float: right;
 }
 
+.new-game {
+  margin: -23em 5em;
+}
+
+.new-game-button {
+  background-color: gray;
+  height:120px;
+  width: 120px;
+  border-radius: 50px 50px;
+}
+
 .mpc-body {
   margin-top: 20%;
   background-color: black;
