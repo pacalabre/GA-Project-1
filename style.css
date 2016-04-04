@@ -4,6 +4,20 @@ body {
   background-size: cover;
 }
 
+.logo{
+  color: red;
+  display:inline-block;
+  float:left;
+}
+
+.display{
+  background-color: yellow;
+  opacity: .8;
+  float: right;
+  height: 12%;
+  margin-right: 10px
+}
+
 .pads {
   height: 25%;
   background-color: grey;
@@ -16,5 +30,7 @@ body {
 
 .mpc-body {
   margin-top: 20%;
-  background-color: black
+  background-color: black;
+  border: solid grey;
+  margin-left: 15%;
 }
