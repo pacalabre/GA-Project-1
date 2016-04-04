@@ -16,6 +16,7 @@ document.getElementById('b1').addEventListener("click", function(event) {
     computerPattern.push('b1');
     console.log("computer pattern ="+computerPattern);
     } else {
+      playPadCymbal()
       playerPattern.push('b1');
       console.log("player plays back number = "+playerPattern);
       comparePattern();
@@ -28,6 +29,7 @@ document.getElementById('b2').addEventListener("click", function(event) {
     computerPattern.push('b2');
     console.log("computer pattern ="+computerPattern);
     } else {
+      playPadHighHat();
       playerPattern.push('b2');
       console.log("player plays back number = "+playerPattern);
       comparePattern();
@@ -40,6 +42,7 @@ document.getElementById('b3').addEventListener("click", function(event) {
     computerPattern.push('b3');
     console.log("computer pattern ="+computerPattern);
     } else {
+      playPadSnare();
       playerPattern.push('b3');
       console.log("player plays back number = "+playerPattern);
       comparePattern();
@@ -52,6 +55,7 @@ document.getElementById('b4').addEventListener("click", function(event) {
     computerPattern.push('b4');
     console.log("computer pattern ="+computerPattern);
     } else {
+      playPadKick();
       playerPattern.push('b4');
       console.log("player plays back number = "+playerPattern);
       comparePattern();
@@ -107,6 +111,32 @@ function comparePattern() {
     computerTurn();
   }
 }
+
+//Drum Sounds
+  function playPadKick() {
+    var audioButton = new Audio();
+    audioButton.src = 'http://s1download-universal-soundbank.com/mp3/sounds/4509.mp3';
+    audioButton.play();
+  }
+
+  function playPadSnare() {
+    var audioButton = new Audio();
+    audioButton.src = 'http://s1download-universal-soundbank.com/mp3/sounds/4400.mp3';
+    audioButton.play();
+  }
+
+  function playPadHighHat() {
+    var audioButton = new Audio();
+    audioButton.src = 'http://s1download-universal-soundbank.com/mp3/sounds/4871.mp3';
+    audioButton.play();
+  }
+
+  function playPadCymbal() {
+    var audioButton = new Audio();
+    audioButton.src = 'http://www.universal-soundbank.com/802a/805020000000000000000000000pkjn800000000000000000000000000000090/g/85055050505050505050505/k/8746.mp3';
+    audioButton.play();
+  }
+
 
 
 
