@@ -86,7 +86,6 @@ function computerTurn() {
 }
 
 function comparePattern() {
-
   var computerPatternCompare;
   var playerPatternCompare;
   for(var i=0;i<computerPattern.length; i++) {
@@ -101,8 +100,9 @@ function comparePattern() {
       playerPattern = [];
       computerTurn();
     } else {
-      alert("game over, your score is"+ playerTurns);
+      alert('game over. your score is '+ playerTurns);
     }
+  return;
   }
 }
 
