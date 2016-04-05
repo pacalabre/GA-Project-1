@@ -164,8 +164,9 @@ function chooseRandom() {
 function computerTurn() {
   // var randomSelection = chooseRandom();
     toggleTurn = 0;
-    playComputerPattern();
+
     chooseRandom();
+    playComputerPattern();
     // return toggleTurn=1;
 }
 
