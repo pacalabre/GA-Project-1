@@ -6,6 +6,7 @@ var toggleTurn = 0;
 var playerTurns = 0;
 var computerPattern = [];
 var playerPattern = [];
+var i =0;
 
 //Button Assignments
 //Creating one function for each button - will reduce this once the game is working
@@ -23,6 +24,7 @@ document.getElementById('b1').addEventListener("click", function(event) {
       console.log("player plays back number = "+playerPattern);
       console.log('toggleTurn = '+toggleTurn);
       comparePattern();
+      console.log("player click");
     }
 });
 
@@ -39,6 +41,7 @@ document.getElementById('b2').addEventListener("click", function(event) {
       console.log("player plays back number = "+playerPattern);
       console.log('toggleTurn = '+toggleTurn);
       comparePattern();
+      console.log("player click");
     }
 });
 
@@ -55,6 +58,7 @@ document.getElementById('b3').addEventListener("click", function(event) {
       console.log("player plays back number = "+playerPattern);
       console.log('toggleTurn = '+toggleTurn);
       comparePattern();
+      console.log("player click");
     }
 });
 
@@ -71,6 +75,7 @@ document.getElementById('b4').addEventListener("click", function(event) {
       console.log("player plays back number = "+playerPattern);
       console.log('toggleTurn = '+toggleTurn);
       comparePattern();
+      console.log("player click");
     }
 });
 
@@ -92,45 +97,80 @@ function chooseRandom() {
   var random = buttons[Math.floor(Math.random()*buttons.length)];
   //this trigger event is the only jquery in the code
   //replace with vanilla JS event when working
-  $('#'+random).trigger('click');
+
+  setTimeout(function() {
+    $('#'+random).trigger('click');
+    toggleTurn = 1;
+}, 1000);
   console.log('random ='+random)
   console.log("computer generates a random number: "+computerPattern);
   console.log('toggleTurn = '+ toggleTurn);
+
+
+
+// var j = 1;                     //  set your counter to 1
+
+// function myLoop () {           //  create a loop function
+//    setTimeout(function () {    //  call a 3s setTimeout when the loop is called
+//       alert('hello');          //  your code here
+//       i++;                     //  increment the counter
+//       if (j < 10) {            //  if the counter < 10, call the loop function
+//          myLoop();             //  ..  again which will trigger another
+//       }                        //  ..  setTimeout()
+//    }, 3000)
+// }
+
+// myLoop();
+
+
 }
+
+
+//new computer pattern
 
 function playComputerPattern() {
   //Set interval one second apart from each other
   //play back each button in var computerPattern
-  console.log(computerPattern);
+  function myLoop () {           //  create a loop function
+     setTimeout(function () {    //  call a 3s setTimeout when the loop is called
 
-  //* This needs to be slowed down *//
-  for( var i = 0; i < computerPattern.length; i++){
+      if (computerPattern[i] === 'b1') {
+        cymbalSound;
+        console.log('this');
 
-    if (computerPattern[i] === 'b1') {
-      cymbalSound;
-      console.log('this');
+      } else if(computerPattern[i] === 'b2') {
+        highHatSound;
+        console.log('this2');
 
-    } else if(computerPattern[i] === 'b2') {
-      highHatSound;
-      console.log('this2');
+      } else if(computerPattern[i] === 'b3') {
+        snareSound;
+        console.log('this3');
 
-    }else if(computerPattern[i] === 'b3') {
-      snareSound;
-      console.log('this3');
+      } else if (computerPattern[i] === 'b4') {
+        kickSound;
+        console.log('this4');
 
-    }else if (computerPattern[i] === 'b4') {
-      kickSound;
-      console.log('this4');
-
-    }
+      } else {
+        console.log("none of these");
+      }
+          i++;        //  increment the counter
+    if (i < computerPattern.length) {            //  if the counter < 10, call the loop function
+      myLoop();             //  ..  again which will trigger another
+    }                        //  ..  setTimeout()
+   }, 1000)
   }
+  myLoop();
 }
 
+
+
+
 function computerTurn() {
+  // var randomSelection = chooseRandom();
     toggleTurn = 0;
     playComputerPattern();
     chooseRandom();
-    return toggleTurn=1;
+    // return toggleTurn=1;
 }
 
 function comparePattern() {
@@ -150,7 +190,9 @@ function comparePattern() {
     console.log("the numbers matched up "+"player number = "+computerPatternCompare+ "computer number = "+playerPatternCompare);
     playerTurns++;
     console.log(playerTurns);
+
     toggleTurn = 1;
+
     playerPattern = [];
     computerTurn();
   }
