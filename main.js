@@ -13,11 +13,12 @@ var playerPattern = [];
 document.getElementById('b1').addEventListener("click", function(event) {
   event.preventDefault();
   if(toggleTurn === 0) {
+    setTimeout(cymbalSound(),2000);
     computerPattern.push('b1');
     console.log("computer pattern ="+computerPattern);
     console.log('toggleTurn = '+toggleTurn);
     } else {
-      playPadCymbal()
+      cymbalSound();
       playerPattern.push('b1');
       console.log("player plays back number = "+playerPattern);
       console.log('toggleTurn = '+toggleTurn);
@@ -28,12 +29,12 @@ document.getElementById('b1').addEventListener("click", function(event) {
 document.getElementById('b2').addEventListener("click", function(event) {
   event.preventDefault();
   if(toggleTurn === 0) {
-
+    setTimeout(highHatSound(),2000);
     computerPattern.push('b2');
     console.log("computer pattern ="+computerPattern);
     console.log('toggleTurn = '+toggleTurn);
     } else {
-      playPadHighHat();
+      highHatSound();
       playerPattern.push('b2');
       console.log("player plays back number = "+playerPattern);
       console.log('toggleTurn = '+toggleTurn);
@@ -44,12 +45,12 @@ document.getElementById('b2').addEventListener("click", function(event) {
 document.getElementById('b3').addEventListener("click", function(event) {
   event.preventDefault();
   if(toggleTurn === 0) {
-
+    setTimeout(snareSound(),2000);
     computerPattern.push('b3');
     console.log("computer pattern ="+computerPattern);
     console.log('toggleTurn = '+toggleTurn);
     } else {
-      playPadSnare();
+      snareSound();
       playerPattern.push('b3');
       console.log("player plays back number = "+playerPattern);
       console.log('toggleTurn = '+toggleTurn);
@@ -60,12 +61,12 @@ document.getElementById('b3').addEventListener("click", function(event) {
 document.getElementById('b4').addEventListener("click", function(event) {
   event.preventDefault();
   if(toggleTurn === 0) {
-
+    setTimeout(kickSound(),2000);
     computerPattern.push('b4');
     console.log("computer pattern ="+computerPattern);
     console.log('toggleTurn = '+toggleTurn);
     } else {
-      playPadKick();
+      kickSound();
       playerPattern.push('b4');
       console.log("player plays back number = "+playerPattern);
       console.log('toggleTurn = '+toggleTurn);
@@ -102,19 +103,25 @@ function playComputerPattern() {
   //play back each button in var computerPattern
   console.log(computerPattern);
 
+  //* This needs to be slowed down *//
   for( var i = 0; i < computerPattern.length; i++){
 
     if (computerPattern[i] === 'b1') {
-      setTimeout(playPadCymbal(), 1000);
+      cymbalSound;
+      console.log('this');
 
     } else if(computerPattern[i] === 'b2') {
-      setTimeout(playPadHighHat(), 1000);
+      highHatSound;
+      console.log('this2');
 
     }else if(computerPattern[i] === 'b3') {
-      setTimeout(playPadSnare(), 1000);
+      snareSound;
+      console.log('this3');
 
     }else if (computerPattern[i] === 'b4') {
-      setTimeout(playPadKick(),1000);
+      kickSound;
+      console.log('this4');
+
     }
   }
 }
@@ -150,25 +157,25 @@ function comparePattern() {
 }
 
 //Drum Sounds
-  function playPadKick() {
+  var kickSound = function playPadKick() {
     var audioButton = new Audio();
     audioButton.src = 'sounds/kick.mp3';
     audioButton.play();
   }
 
-  function playPadSnare() {
+  var snareSound = function playPadSnare() {
     var audioButton = new Audio();
     audioButton.src = 'sounds/snare.mp3';
     audioButton.play();
   }
 
-  function playPadHighHat() {
+  var highHatSound = function playPadHighHat() {
     var audioButton = new Audio();
     audioButton.src = 'sounds/high-hat.mp3';
     audioButton.play();
   }
 
-  function playPadCymbal() {
+  var cymbalSound = function playPadCymbal() {
     var audioButton = new Audio();
     audioButton.src = 'sounds/cymbal.mp3';
     audioButton.play();
