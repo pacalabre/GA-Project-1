@@ -99,29 +99,13 @@ function chooseRandom() {
   //replace with vanilla JS event when working
 
   setTimeout(function() {
+    playComputerPattern();
     $('#'+random).trigger('click');
     toggleTurn = 1;
 }, 1000);
   console.log('random ='+random)
   console.log("computer generates a random number: "+computerPattern);
   console.log('toggleTurn = '+ toggleTurn);
-
-
-
-// var j = 1;                     //  set your counter to 1
-
-// function myLoop () {           //  create a loop function
-//    setTimeout(function () {    //  call a 3s setTimeout when the loop is called
-//       alert('hello');          //  your code here
-//       i++;                     //  increment the counter
-//       if (j < 10) {            //  if the counter < 10, call the loop function
-//          myLoop();             //  ..  again which will trigger another
-//       }                        //  ..  setTimeout()
-//    }, 3000)
-// }
-
-// myLoop();
-
 
 }
 
@@ -134,20 +118,23 @@ function playComputerPattern() {
   function myLoop () {           //  create a loop function
      setTimeout(function () {    //  call a 3s setTimeout when the loop is called
 
-      if (computerPattern[i] === 'b1') {
-        cymbalSound;
+      if(computerPattern.length ===1){
+        console.log("first turn");
+      }
+      if (computerPattern.length > 1 && computerPattern[i] === 'b1') {
+        cymbalSound();
         console.log('this');
 
-      } else if(computerPattern[i] === 'b2') {
-        highHatSound;
+      } else if(computerPattern.length > 1 && computerPattern[i] === 'b2') {
+        highHatSound();
         console.log('this2');
 
-      } else if(computerPattern[i] === 'b3') {
-        snareSound;
+      } else if(computerPattern.length > 1 && computerPattern[i] === 'b3') {
+        snareSound();
         console.log('this3');
 
-      } else if (computerPattern[i] === 'b4') {
-        kickSound;
+      } else if (computerPattern.length > 1 && computerPattern[i] === 'b4') {
+        kickSound();
         console.log('this4');
 
       } else {
@@ -168,7 +155,7 @@ function playComputerPattern() {
 function computerTurn() {
   // var randomSelection = chooseRandom();
     toggleTurn = 0;
-    playComputerPattern();
+    // playComputerPattern();
     chooseRandom();
     // return toggleTurn=1;
 }
