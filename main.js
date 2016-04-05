@@ -16,7 +16,7 @@ document.getElementById('b1').addEventListener("click", function(event) {
   event.preventDefault();
   console.log(toggleTurn);
   if(toggleTurn === 0) {
-    cymbalSound();
+    // cymbalSound();
     computerPattern.push('b1');
   } else {
     cymbalSound();
@@ -29,7 +29,7 @@ document.getElementById('b2').addEventListener("click", function(event) {
   event.preventDefault();
   console.log(toggleTurn);
   if(toggleTurn === 0) {
-    highHatSound();
+    // highHatSound();
     computerPattern.push('b2');
     } else {
       highHatSound();
@@ -42,7 +42,7 @@ document.getElementById('b3').addEventListener("click", function(event) {
   event.preventDefault();
   console.log(toggleTurn);
   if(toggleTurn === 0) {
-    snareSound();
+    // snareSound();
     computerPattern.push('b3');
     } else {
       snareSound();
@@ -55,7 +55,7 @@ document.getElementById('b4').addEventListener("click", function(event) {
   event.preventDefault();
   console.log(toggleTurn);
   if(toggleTurn === 0) {
-    kickSound();
+    // kickSound();
     computerPattern.push('b4');
     } else {
       kickSound();
