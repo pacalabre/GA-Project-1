@@ -96,7 +96,7 @@ function playComputerPattern() {
       $('.display').text('01 Cymbal');
     } else if(computerPattern[j] == 'b2') {
       highHatSound();
-      $('.display').text('02 High-hat');
+      $('.display').text('02 High Hat');
     } else if(computerPattern[j] == 'b3') {
       snareSound();
       $('.display').text('03 Snare');
