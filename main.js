@@ -18,6 +18,7 @@ document.getElementById('b1').addEventListener("click", function(event) {
     computerPattern.push('b1');
   } else {
     cymbalSound();
+    $('.display').text('01 Cymbal');
     playerPattern.push('b1');
     comparePattern();
   }
@@ -29,6 +30,7 @@ document.getElementById('b2').addEventListener("click", function(event) {
     computerPattern.push('b2');
     } else {
       highHatSound();
+      $('.display').text('02 High Hat');
       playerPattern.push('b2');
       comparePattern();
     }
@@ -40,6 +42,7 @@ document.getElementById('b3').addEventListener("click", function(event) {
     computerPattern.push('b3');
     } else {
       snareSound();
+      $('.display').text('03 Snare');
       playerPattern.push('b3');
       comparePattern();
     }
@@ -51,6 +54,7 @@ document.getElementById('b4').addEventListener("click", function(event) {
     computerPattern.push('b4');
     } else {
       kickSound();
+      $('.display').text('04 Kick');
       playerPattern.push('b4');
       comparePattern();
     }
@@ -89,15 +93,16 @@ function playComputerPattern() {
     }
     if (computerPattern[j] === 'b1') {
       cymbalSound();
+      $('.display').text('01 Cymbal');
     } else if(computerPattern[j] == 'b2') {
       highHatSound();
-
+      $('.display').text('02 High-hat');
     } else if(computerPattern[j] == 'b3') {
       snareSound();
-
+      $('.display').text('03 Snare');
     } else if (computerPattern[j] == 'b4') {
       kickSound();
-
+      $('.display').text('04 Kick');
     } else {
       console.log("none of these");
     }
