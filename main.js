@@ -14,9 +14,7 @@ var i = 0;
 
 document.getElementById('b1').addEventListener("click", function(event) {
   event.preventDefault();
-  console.log(toggleTurn);
   if(toggleTurn === 0) {
-    // cymbalSound();
     computerPattern.push('b1');
   } else {
     cymbalSound();
@@ -27,9 +25,7 @@ document.getElementById('b1').addEventListener("click", function(event) {
 
 document.getElementById('b2').addEventListener("click", function(event) {
   event.preventDefault();
-  console.log(toggleTurn);
   if(toggleTurn === 0) {
-    // highHatSound();
     computerPattern.push('b2');
     } else {
       highHatSound();
@@ -40,9 +36,7 @@ document.getElementById('b2').addEventListener("click", function(event) {
 
 document.getElementById('b3').addEventListener("click", function(event) {
   event.preventDefault();
-  console.log(toggleTurn);
   if(toggleTurn === 0) {
-    // snareSound();
     computerPattern.push('b3');
     } else {
       snareSound();
@@ -53,9 +47,7 @@ document.getElementById('b3').addEventListener("click", function(event) {
 
 document.getElementById('b4').addEventListener("click", function(event) {
   event.preventDefault();
-  console.log(toggleTurn);
   if(toggleTurn === 0) {
-    // kickSound();
     computerPattern.push('b4');
     } else {
       kickSound();
@@ -80,94 +72,44 @@ function playBack() {
 function chooseRandom() {
   var buttons = ['b1','b2','b3','b4'];
   var random = buttons[Math.floor(Math.random()*buttons.length)];
-  //this trigger event is the only jquery in the code
-  //replace with vanilla JS event when working
 
   setTimeout(function() {
     $('#'+random).trigger('click');
     toggleTurn = 1;
   }, 1000);
-  console.log('random ='+random)
-  console.log("computer generates a random number: "+computerPattern);
-  console.log('toggleTurn = '+ toggleTurn);
-
 }
 
-//new computer pattern
+function playComputerPattern() {
+  var j = 0;
 
-  function playComputerPattern() {
-    console.log("in playComputerPattern, computerPattern = "+ computerPattern);           //  create a loop function
+  playInterval = setInterval(function() {
 
-    var j = 0;
+    if(j === computerPattern.length) {
+      clearInterval(playInterval);
+    }
+    if (computerPattern[j] === 'b1') {
+      cymbalSound();
+    } else if(computerPattern[j] == 'b2') {
+      highHatSound();
 
-    playInterval = setInterval(function() {
+    } else if(computerPattern[j] == 'b3') {
+      snareSound();
 
-      if(j === computerPattern.length) {
-        clearInterval(playInterval);
-      }
+    } else if (computerPattern[j] == 'b4') {
+      kickSound();
 
-      if (computerPattern[j] === 'b1') {
-        cymbalSound();
-      } else if(computerPattern[j] == 'b2') {
-        highHatSound();
-        console.log('this2');
+    } else {
+      console.log("none of these");
+    }
 
-      } else if(computerPattern[j] == 'b3') {
-        snareSound();
-        console.log('this3');
-
-      } else if (computerPattern[j] == 'b4') {
-        kickSound();
-        console.log('this4');
-
-      } else {
-        console.log("none of these");
-        console.log(computerPattern.length);
-      }
-
-      j++
-    }, 1000);
-
-  //    setTimeout(function () {    //  call a 3s setTimeout when the loop is called
-
-  //     //console.log(computerPattern[i]);
-
-  //     if (computerPattern[i] == 'b1') {
-  //       cymbalSound();
-  //       console.log('this');
-
-  //     } else if(computerPattern[i] == 'b2') {
-  //       highHatSound();
-  //       console.log('this2');
-
-  //     } else if(computerPattern[i] == 'b3') {
-  //       snareSound();
-  //       console.log('this3');
-
-  //     } else if (computerPattern[i] == 'b4') {
-  //       kickSound();
-  //       console.log('this4');
-
-  //     } else {
-  //       console.log("none of these");
-  //       console.log(computerPattern.length);
-  //     }
-
-  //     i++; //  increment the counter
-
-  //     if (i < computerPattern.length) {            //  if the counter < 10, call the loop function
-  //       playComputerPattern();             //  ..  again which will trigger another
-  //     }                        //  ..  setTimeout()
-  // }, 1000)
+    j++
+  }, 1000);
 }
 
 function computerTurn() {
-  // var randomSelection = chooseRandom();
     toggleTurn = 0;
-
     chooseRandom();
     playComputerPattern();
-    // return toggleTurn=1;
 }
 
 function comparePattern() {
@@ -184,17 +126,15 @@ function comparePattern() {
           return alert("game over, your score is "+ playerTurns);
         }
     }
-    console.log("the numbers matched up "+"player number = "+computerPatternCompare+ "computer number = "+playerPatternCompare);
     playerTurns++;
-    console.log(playerTurns);
     toggleTurn = 1;
-
     playerPattern = [];
     computerTurn();
   }
 }
 
 //Drum Sounds
+
   var kickSound = function playPadKick() {
     var audioButton = new Audio();
     audioButton.src = 'sounds/kick.mp3';
