@@ -107,3 +107,30 @@ body {
   border: solid grey;
   margin-left: 15%;
 }
+
+@media only screen and (max-width: 992px) {
+  body{
+    background-color: white;
+  }
+
+  .header h1 {
+    font-size: 100px;
+  }
+
+  .mpc-body {
+    margin-top: 25%;
+  }
+
+  .new-game-button {
+    display: none;
+  }
+
+  .pads {
+    height: 20%;
+  }
+
+}
+
+@media only screen and (max-width: 992px) {
+
+}
