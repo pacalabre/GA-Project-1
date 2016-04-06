@@ -62,16 +62,16 @@ document.getElementById('b4').addEventListener("click", function(event) {
 
 //Other Buttons
 
-document.getElementById('playBack').addEventListener('click', function(event){
-  event.preventDefault();
-  playBack();
-});
+// document.getElementById('playBack').addEventListener('click', function(event){
+//   event.preventDefault();
+//   playBack();
+// });
 
-//Functions
+// //Functions
 
-function playBack() {
-  console.log(computerPattern);
-}
+// function playBack() {
+//   console.log(computerPattern);
+// }
 
 function chooseRandom() {
   var buttons = ['b1','b2','b3','b4'];
