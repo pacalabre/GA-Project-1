@@ -12,69 +12,103 @@ var playInterval;
 //Button Assignments
 //Creating one function for each button - will reduce this once the game is working
 
-document.getElementById('b1').addEventListener("click", function(event) {
-  event.preventDefault();
-  if(toggleTurn === 0) {
-    computerPattern.push('b1');
-  } else {
-    cymbalSound();
-    $('.display').text('01 Cymbal');
-    playerPattern.push('b1');
-    comparePattern();
-  }
-});
+// document.getElementById('b1').addEventListener("click", function(event) {
+//   event.preventDefault();
+//   if(toggleTurn === 0) {
+//     computerPattern.push('b1');
+//   } else {
+//     cymbalSound();
+//     $('.display').text('01 Cymbal');
+//     playerPattern.push('b1');
+//     comparePattern();
+//   }
+// });
 
 
 //Making a Dryer function
+function assignButtons() {
+  var grabPads;
+  for(var i = 0; i <= buttons.length; i++) {
+    grabPads = document.getElementById('b'+i);
+    console.log(grabPads);
+    console.log(i);
+  }
 
-// for(var i=0; i<buttons.length; i++) {
-//   document.getElementById('b'+i).addEventListener("click", function(event)) {
-//     if(toggleTurn === 0) {
-//       computerPattern.push("b"+i);
-//       console.log(i);
-//       else {
-        //switch statment
-//       }
-//     }
-//   }
+  grabPads.addEventListener("click", function(event) {
+    for(i = 0; i < buttons.length; i++) {
+      event.preventDefault();
+      if(toggleTurn === 0) {
+        computerPattern.push('b'+i);
+      } else {
+        cymbalSound();
+        $('.display').text('01 Cymbal');
+        playerPattern.push('b'+i);
+        comparePattern();
+      }
+    }
+  });
+}
+
+    // (function() grabButton.addEventListener("click", function(event) {
+    //   event.preventDefault();
+    //   if(toggleTurn === 0) {
+    //     computerPattern.push(grabButton);
+    //     console.log("computerPattern in loop = "+computerPattern);
+    //     console.log("computer clicked");
+    //   }
+    //   console.log("you clicked");
+    // })())
+
+//}
+  //   if(toggleTurn === 0) {
+  //     computerPattern.push(grabButton);
+  //     console.log("grabButton = "+grabButton);
+  //     //else {
+  //       //switch statment
+
+
+  //     }
+  //   })
+  // }
 // }
 
 
-document.getElementById('b2').addEventListener("click", function(event) {
-  event.preventDefault();
-  if(toggleTurn === 0) {
-    computerPattern.push('b2');
-    } else {
-      highHatSound();
-      $('.display').text('02 High Hat');
-      playerPattern.push('b2');
-      comparePattern();
-    }
-});
 
-document.getElementById('b3').addEventListener("click", function(event) {
-  event.preventDefault();
-  if(toggleTurn === 0) {
-    computerPattern.push('b3');
-    } else {
-      snareSound();
-      $('.display').text('03 Snare');
-      playerPattern.push('b3');
-      comparePattern();
-    }
-});
+// document.getElementById('b2').addEventListener("click", function(event) {
+//   event.preventDefault();
+//   if(toggleTurn === 0) {
+//     computerPattern.push('b2');
+//     } else {
+//       highHatSound();
+//       $('.display').text('02 High Hat');
+//       playerPattern.push('b2');
+//       comparePattern();
+//     }
+// });
 
-document.getElementById('b4').addEventListener("click", function(event) {
-  event.preventDefault();
-  if(toggleTurn === 0) {
-    computerPattern.push('b4');
-    } else {
-      kickSound();
-      $('.display').text('04 Kick');
-      playerPattern.push('b4');
-      comparePattern();
-    }
-});
+// document.getElementById('b3').addEventListener("click", function(event) {
+//   event.preventDefault();
+//   if(toggleTurn === 0) {
+//     computerPattern.push('b3');
+//     } else {
+//       snareSound();
+//       $('.display').text('03 Snare');
+//       playerPattern.push('b3');
+//       comparePattern();
+//     }
+// });
+
+// document.getElementById('b4').addEventListener("click", function(event) {
+//   event.preventDefault();
+//   if(toggleTurn === 0) {
+//     computerPattern.push('b4');
+//     } else {
+//       kickSound();
+//       $('.display').text('04 Kick');
+//       playerPattern.push('b4');
+//       comparePattern();
+//     }
+// });
 
 //Other Buttons
 
@@ -180,4 +214,5 @@ function comparePattern() {
     audioButton.play();
   }
 
+assignButtons();
 computerTurn();
