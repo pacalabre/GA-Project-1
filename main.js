@@ -6,8 +6,8 @@ var toggleTurn = 0;
 var playerTurns = 0;
 var computerPattern = [];
 var playerPattern = [];
+var buttons= ['b1','b2','b3','b4'];
 var playInterval;
-var i = 0;
 
 //Button Assignments
 //Creating one function for each button - will reduce this once the game is working
@@ -23,6 +23,22 @@ document.getElementById('b1').addEventListener("click", function(event) {
     comparePattern();
   }
 });
+
+
+//Making a Dryer function
+
+// for(var i=0; i<buttons.length; i++) {
+//   document.getElementById('b'+i).addEventListener("click", function(event)) {
+//     if(toggleTurn === 0) {
+//       computerPattern.push("b"+i);
+//       console.log(i);
+//       else {
+        //switch statment
+//       }
+//     }
+//   }
+// }
+
 
 document.getElementById('b2').addEventListener("click", function(event) {
   event.preventDefault();
