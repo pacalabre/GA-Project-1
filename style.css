@@ -2,12 +2,10 @@
 @import url(https://fonts.googleapis.com/css?family=Permanent+Marker);
 @import url(https://fonts.googleapis.com/css?family=Quantico);
 
-/*body {
-  background-image: url('studio.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
+/*h1 {
+  margin-top: 0px;
+  margin-bottom: 0px;
 }*/
-
 
 body {
   background-color: black;
@@ -29,22 +27,23 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 105%;
+    height: 105%;
 }
+
 
 /* Header Styles */
 
 .header {
-  color: white;
   font-family: permanent marker;
-  color: black;
+  color: red;
 }
 
 .header h1 {
   font-size: 120px;
   text-align: center;
 }
+
 
 /* MPC Styles */
 
@@ -108,31 +107,14 @@ body {
   margin-left: 15%;
 }
 
+
 /* Responsive */
 
 @media only screen and (max-width: 992px) {
-  body{
-    background-color: white;
-  }
 
-  .header h1 {
-    font-size: 100px;
-  }
-
-  .mpc-body {
-    margin-top: 25%;
-  }
-
-  .new-game-button {
+   .new-game-button {
     display: none;
   }
-
-  .pads {
-    height: 20%;
-  }
-}
-
-@media only screen and (max-width: 992px) {
 
   .display {
     margin-right: 8%;
@@ -142,20 +124,47 @@ body {
   .pads {
     margin-right: 5%;
   }
+
+
+  .pads {
+    height: 20%;
+  }
+
+  .mpc-body {
+    margin-top: 25%;
+  }
+
+  .header h1 {
+    font-size: 100px;
+  }
 }
 
 @media only screen and (max-width: 625px) {
+
+  body {
+  background-image: url('studio.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  }
+
+  .header {
+  color: white;
+  }
+
+  .background-div {
+    display: none;
+  }
 
   .header h1 {
     font-size: 60px;
   }
 
   .mpc-body {
-    margin-top: 40%;
+    margin-top: 35%;
   }
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 450px) {
 
   .mpc-body {
     margin-top: 50%
