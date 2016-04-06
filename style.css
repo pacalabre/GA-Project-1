@@ -67,7 +67,7 @@ body {
   font-family: Quantico;
   font-size: 30px;
   text-align: center;
-  padding-top: 2.5%;
+  padding-top: 3%;
 }
 
 .pads {
@@ -108,6 +108,8 @@ body {
   margin-left: 15%;
 }
 
+/* Responsive */
+
 @media only screen and (max-width: 992px) {
   body{
     background-color: white;
@@ -128,9 +130,34 @@ body {
   .pads {
     height: 20%;
   }
-
 }
 
 @media only screen and (max-width: 992px) {
 
+  .display {
+    margin-right: 8%;
+    padding-top: 5%;
+  }
+
+  .pads {
+    margin-right: 5%;
+  }
+}
+
+@media only screen and (max-width: 625px) {
+
+  .header h1 {
+    font-size: 60px;
+  }
+
+  .mpc-body {
+    margin-top: 40%;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+
+  .mpc-body {
+    margin-top: 50%
+  }
 }
