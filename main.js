@@ -10,6 +10,7 @@ var buttons= ['b1','b2','b3','b4'];
 var playInterval;
 
 //Assign Click Events to Pads
+
 function assignButtons() {
 
   $('.pads').click(function(event) {
@@ -64,6 +65,7 @@ function assignButtons() {
 // }
 
 //Computer Selects a Random Pad
+
 function chooseRandom() {
   var buttons = ['b1','b2','b3','b4'];
   var random = buttons[Math.floor(Math.random()*buttons.length)];
@@ -75,6 +77,7 @@ function chooseRandom() {
 }
 
 // Computer Plays All Pads in the Computer Pattern Array
+
 function playComputerPattern() {
   var j = 0;
   playInterval = setInterval(function() {
