@@ -51,18 +51,22 @@ function assignButtons() {
   });
 }
 
-//Other Buttons
+// New Game Button
 
-// document.getElementById('playBack').addEventListener('click', function(event){
-//   event.preventDefault();
-//   playBack();
-// });
+document.getElementById('newGame').addEventListener('click', function(event){
+  event.preventDefault();
+  toggleTurn = 0;
+  playerTurns = 0;
+  computerPattern = [];
+  playerPattern = [];
+  computerTurn();
+});
 
-// //Functions
+//Functions
 
-// function playBack() {
-//   console.log(computerPattern);
-// }
+function playBack() {
+  console.log(computerPattern);
+}
 
 //Computer Selects a Random Pad
 
