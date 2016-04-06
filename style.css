@@ -72,7 +72,7 @@ body {
 }
 
 .new-game {
-  margin: -23em 5em;
+  margin: 10px 55px;
 }
 
 .new-game-button {
@@ -80,6 +80,16 @@ body {
   height:120px;
   width: 120px;
   border-radius: 50px 50px;
+}
+
+.more-buttons {
+  float: right;
+  margin-top: 30px 60px;
+}
+
+.more-buttons-button {
+  height: 30px;
+  width: 60px;
 }
 
 .mpc-body {
