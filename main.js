@@ -9,106 +9,46 @@ var playerPattern = [];
 var buttons= ['b1','b2','b3','b4'];
 var playInterval;
 
-//Button Assignments
-//Creating one function for each button - will reduce this once the game is working
-
-// document.getElementById('b1').addEventListener("click", function(event) {
-//   event.preventDefault();
-//   if(toggleTurn === 0) {
-//     computerPattern.push('b1');
-//   } else {
-//     cymbalSound();
-//     $('.display').text('01 Cymbal');
-//     playerPattern.push('b1');
-//     comparePattern();
-//   }
-// });
-
-
-//Making a Dryer function
+//Assign Click Events to Pads
 function assignButtons() {
-  var grabPads;
-  for(var i = 0; i <= buttons.length; i++) {
-    grabPads = document.getElementById('b'+i);
-    console.log(grabPads);
-    console.log(i);
-  }
 
-  grabPads.addEventListener("click", function(event) {
-    for(i = 0; i < buttons.length; i++) {
-      event.preventDefault();
-      if(toggleTurn === 0) {
-        computerPattern.push('b'+i);
-      } else {
+  $('.pads').click(function(event) {
+    event.preventDefault();
+    var padId = $(this).attr('id');
+
+    if(toggleTurn === 0) {
+      computerPattern.push(padId);
+    } else {
+      if (padId === 'b1') {
         cymbalSound();
         $('.display').text('01 Cymbal');
-        playerPattern.push('b'+i);
+        playerPattern.push('b1');
         comparePattern();
+
+      } else if ( padId === 'b2') {
+        highHatSound();
+        $('.display').text('02 High-hat');
+        playerPattern.push('b2');
+        comparePattern();
+
+      } else if (padId === 'b3') {
+        snareSound();
+        $('.display').text('03 Snare');
+        playerPattern.push('b3');
+        comparePattern();
+
+      } else if (padId === 'b4') {
+        kickSound();
+        $('.display').text('04 Kick');
+        playerPattern.push('b4');
+        comparePattern();
+
+      } else {
+        console.log("something went wrong in your assignment functions");
       }
     }
   });
 }
-
-    // (function() grabButton.addEventListener("click", function(event) {
-    //   event.preventDefault();
-    //   if(toggleTurn === 0) {
-    //     computerPattern.push(grabButton);
-    //     console.log("computerPattern in loop = "+computerPattern);
-    //     console.log("computer clicked");
-    //   }
-    //   console.log("you clicked");
-    // })())
-
-//}
-  //   if(toggleTurn === 0) {
-  //     computerPattern.push(grabButton);
-  //     console.log("grabButton = "+grabButton);
-  //     //else {
-  //       //switch statment
-
-
-  //     }
-  //   })
-  // }
-// }
-
-
-
-// document.getElementById('b2').addEventListener("click", function(event) {
-//   event.preventDefault();
-//   if(toggleTurn === 0) {
-//     computerPattern.push('b2');
-//     } else {
-//       highHatSound();
-//       $('.display').text('02 High Hat');
-//       playerPattern.push('b2');
-//       comparePattern();
-//     }
-// });
-
-// document.getElementById('b3').addEventListener("click", function(event) {
-//   event.preventDefault();
-//   if(toggleTurn === 0) {
-//     computerPattern.push('b3');
-//     } else {
-//       snareSound();
-//       $('.display').text('03 Snare');
-//       playerPattern.push('b3');
-//       comparePattern();
-//     }
-// });
-
-// document.getElementById('b4').addEventListener("click", function(event) {
-//   event.preventDefault();
-//   if(toggleTurn === 0) {
-//     computerPattern.push('b4');
-//     } else {
-//       kickSound();
-//       $('.display').text('04 Kick');
-//       playerPattern.push('b4');
-//       comparePattern();
-//     }
-// });
 
 //Other Buttons
 
@@ -123,6 +63,7 @@ function assignButtons() {
 //   console.log(computerPattern);
 // }
 
+//Computer Selects a Random Pad
 function chooseRandom() {
   var buttons = ['b1','b2','b3','b4'];
   var random = buttons[Math.floor(Math.random()*buttons.length)];
@@ -133,9 +74,9 @@ function chooseRandom() {
   }, 1000);
 }
 
+// Computer Plays All Pads in the Computer Pattern Array
 function playComputerPattern() {
   var j = 0;
-
   playInterval = setInterval(function() {
 
     if(j === computerPattern.length) {
