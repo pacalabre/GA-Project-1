@@ -9,11 +9,12 @@
 
 // Build out from there
 
-// On/Off
+// On/Off - done
 // style button text
 // add keyboard play - done
 
 var onOff = false;
+var buttonsAssigned = false;
 var toggleTurn = 0;
 var playerTurns = 0;
 var computerPattern = [];
@@ -25,7 +26,7 @@ var playInterval;
 //Assign Click Events to Pads
 
 function assignButtons() {
-  if(onOff === true) {
+  if(onOff === true && buttonsAssigned === false) {
     $('.pads').click(function(event) {
       event.preventDefault();
       var padId = $(this).attr('id');
@@ -65,18 +66,33 @@ function assignButtons() {
   } else {
     console.log("its not on");
   }
+  return buttonsAssigned = true;
 }
 
 //On / Off button
 $('#power').click(function(){
+  event.preventDefault();
   onOff= !onOff;
   if(onOff === true) {
     $('.display').addClass('display-on');
+    assignButtons();
+    toggleTurn = 0;
+    playerTurns = 0;
+    computerPattern = [];
+    playerPattern = [];
+    computerTurn();
   } else if(onOff === false) {
     $('.display').removeClass('display-on');
   }
-  assignButtons();
-  computerTurn();
+
+  if (onOff === false) {
+    $('.display').removeClass('display-on');
+    toggleTurn = 0;
+    playerTurns = 0;
+    computerPattern = [];
+    playerPattern = [];
+    $('.display').text('');
+  }
 })
 
 
@@ -165,9 +181,11 @@ function playComputerPattern() {
 }
 
 function computerTurn() {
+  if (onOff === true){
     toggleTurn = 0;
     chooseRandom();
     playComputerPattern();
+  }
 }
 
 function comparePattern() {
@@ -226,4 +244,5 @@ function Power() {
     computerTurn();
   }
 }
+
 
