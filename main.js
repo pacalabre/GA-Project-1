@@ -1,6 +1,17 @@
 // Make basic structure of game
-// Think about ways to make it more complex - ie high score, added buttons, on/off, sampler option, free style mode, button controls
+// Think about ways to make it more complex:
+// high score,
+// added buttons,
+// on/off,
+// sampler option,
+// free style mode,
+// button controls
+
 // Build out from there
+
+// On/Off
+// style button text
+// add keyboard play
 
 var toggleTurn = 0;
 var playerTurns = 0;
@@ -51,6 +62,30 @@ function assignButtons() {
     }
   });
 }
+
+//assign keyboard events
+//1 kick = 49
+//2 snare = 50
+//3 high-hat = 51
+//4 cymbal = 52
+$(document).keypress(function(event){
+
+  if(toggleTurn === 1) {
+    var keycode = (event.keyCode ? event.keyCode : event.which);
+    if (keycode == '49') {
+      $('#b4').click();
+    } else if (keycode == '50') {
+      $('#b3').click();
+    } else if (keycode == '51') {
+      $('#b2').click();
+    } else if (keycode == '52'){
+      $('#b1').click();
+    }
+  } else if (toggleTurn != 1) {
+    console.log("its not your turn yo!");
+  }
+});
+
 
 
 // New Game Button
