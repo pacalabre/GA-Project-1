@@ -11,8 +11,9 @@
 
 // On/Off
 // style button text
-// add keyboard play
+// add keyboard play - done
 
+var onOff = 0;
 var toggleTurn = 0;
 var playerTurns = 0;
 var computerPattern = [];
