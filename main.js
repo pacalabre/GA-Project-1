@@ -1,18 +1,3 @@
-// Make basic structure of game
-// Think about ways to make it more complex:
-// high score,
-// added buttons,
-// on/off,
-// sampler option,
-// free style mode,
-// button controls
-
-// Build out from there
-
-// On/Off - done
-// style button text
-// add keyboard play - done
-// add instruction modal
 
 var onOff = false;
 var buttonsAssigned = false;
@@ -70,8 +55,10 @@ function assignButtons() {
   return buttonsAssigned = true;
 }
 
+
 //On / Off button
-$('#power').click(function(){
+
+$('#power').click(function() {
   event.preventDefault();
   onOff= !onOff;
   if(onOff === true) {
@@ -97,7 +84,7 @@ $('#power').click(function(){
 })
 
 
-//assign keyboard events
+//Assign Keyboard Events
 
 $(document).keypress(function(event) {
   if(onOff === true) {
@@ -119,7 +106,6 @@ $(document).keypress(function(event) {
 });
 
 
-
 // New Game Button
 
 document.getElementById('newGame').addEventListener('click', function(event){
@@ -130,13 +116,6 @@ document.getElementById('newGame').addEventListener('click', function(event){
   playerPattern = [];
   computerTurn();
 });
-
-
-//Functions
-
-function playBack() {
-  console.log(computerPattern);
-}
 
 
 //Computer Selects a Random Pad
@@ -200,8 +179,7 @@ function comparePattern() {
       computerPatternCompare = computerPattern[i];
       playerPatternCompare = playerPattern[i];
         if (computerPatternCompare != playerPatternCompare) {
-          return swal("game over, your score is "+ playerTurns);
-          // return alert("game over, your score is "+ playerTurns);
+          return swal("Game Over, Your Score is: "+ playerTurns);
         }
     }
     playerTurns++;
