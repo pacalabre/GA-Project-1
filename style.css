@@ -2,33 +2,29 @@
 @import url(https://fonts.googleapis.com/css?family=Permanent+Marker);
 @import url(https://fonts.googleapis.com/css?family=Quantico);
 
-/*h1 {
-  margin-top: 0px;
-  margin-bottom: 0px;
-}*/
-
 body {
   background-color: black;
 }
 
+
 /* Video Styles */
 
 .background-div {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    overflow: hidden;
-    z-index: -100;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: -100;
 }
 
 .background-div-video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 105%;
-    height: 105%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 105%;
+  height: 105%;
 }
 
 
@@ -51,13 +47,13 @@ body {
   margin-top: -11em;
 }
 
-.logo{
+.logo {
   color: red;
   display:inline-block;
   float:left;
 }
 
-.display{
+.display {
   background-color: yellow;
   opacity: .8;
   float: right;
@@ -104,7 +100,7 @@ body {
   margin-top: 14%;
   background-color: #2d343a;
   border: solid grey;
-  margin-left: 15%;
+  margin-left: 17%;
 }
 
 
