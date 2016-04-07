@@ -12,6 +12,7 @@
 // On/Off - done
 // style button text
 // add keyboard play - done
+// add instruction modal
 
 var onOff = false;
 var buttonsAssigned = false;
@@ -236,13 +237,5 @@ function comparePattern() {
     audioButton.src = 'sounds/cymbal.mp3';
     audioButton.play();
   }
-
-
-function Power() {
-  if(onOff == 1) {
-    assignButtons();
-    computerTurn();
-  }
-}
 
 
