@@ -25,72 +25,79 @@ var playInterval;
 //Assign Click Events to Pads
 
 function assignButtons() {
+  if(onOff === true) {
+    $('.pads').click(function(event) {
+      event.preventDefault();
+      var padId = $(this).attr('id');
 
-  $('.pads').click(function(event) {
-    event.preventDefault();
-    var padId = $(this).attr('id');
-
-    if(toggleTurn === 0) {
-      computerPattern.push(padId);
-    } else {
-      if (padId === 'b1') {
-        cymbalSound();
-        $('.display').text('04 Cymbal');
-        playerPattern.push('b1');
-        comparePattern();
-
-      } else if ( padId === 'b2') {
-        highHatSound();
-        $('.display').text('03 High-hat');
-        playerPattern.push('b2');
-        comparePattern();
-
-      } else if (padId === 'b3') {
-        snareSound();
-        $('.display').text('02 Snare');
-        playerPattern.push('b3');
-        comparePattern();
-
-      } else if (padId === 'b4') {
-        kickSound();
-        $('.display').text('01 Kick');
-        playerPattern.push('b4');
-        comparePattern();
-
+      if(toggleTurn === 0) {
+        computerPattern.push(padId);
       } else {
-        console.log("something went wrong in your assignment functions");
+        if (padId === 'b1') {
+          cymbalSound();
+          $('.display').text('04 Cymbal');
+          playerPattern.push('b1');
+          comparePattern();
+
+        } else if ( padId === 'b2') {
+          highHatSound();
+          $('.display').text('03 High-hat');
+          playerPattern.push('b2');
+          comparePattern();
+
+        } else if (padId === 'b3') {
+          snareSound();
+          $('.display').text('02 Snare');
+          playerPattern.push('b3');
+          comparePattern();
+
+        } else if (padId === 'b4') {
+          kickSound();
+          $('.display').text('01 Kick');
+          playerPattern.push('b4');
+          comparePattern();
+
+        } else {
+          console.log("something went wrong in your assignment functions");
+        }
       }
-    }
-  });
+    });
+  } else {
+    console.log("its not on");
+  }
 }
 
 //On / Off button
 $('#power').click(function(){
   onOff= !onOff;
-  if(onOff == true) {
+  if(onOff === true) {
     $('.display').addClass('display-on');
-  } else if(onOff == false) {
+  } else if(onOff === false) {
     $('.display').removeClass('display-on');
   }
+  assignButtons();
+  computerTurn();
 })
+
 
 //assign keyboard events
 
-$(document).keypress(function(event){
-
-  if(toggleTurn === 1) {
-    var keycode = (event.keyCode ? event.keyCode : event.which);
-    if (keycode == '49') {
-      $('#b4').click();
-    } else if (keycode == '50') {
-      $('#b3').click();
-    } else if (keycode == '51') {
-      $('#b2').click();
-    } else if (keycode == '52'){
-      $('#b1').click();
+$(document).keypress(function(event) {
+  if(onOff === true) {
+    if(toggleTurn === 1) {
+      var keycode = (event.keyCode ? event.keyCode : event.which);
+      if (keycode == '49') {
+        $('#b4').click();
+      } else if (keycode == '50') {
+        $('#b3').click();
+      } else if (keycode == '51') {
+        $('#b2').click();
+      } else if (keycode == '52'){
+        $('#b1').click();
+      }
+    } else if (toggleTurn != 1) {
+      console.log("its not your turn yo!");
     }
-  } else if (toggleTurn != 1) {
-    console.log("its not your turn yo!");
   }
 });
 
@@ -219,5 +226,4 @@ function Power() {
     computerTurn();
   }
 }
-// assignButtons();
-// computerTurn();
+
