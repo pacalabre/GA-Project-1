@@ -13,7 +13,7 @@
 // style button text
 // add keyboard play - done
 
-var onOff = 0;
+var onOff = false;
 var toggleTurn = 0;
 var playerTurns = 0;
 var computerPattern = [];
@@ -64,11 +64,18 @@ function assignButtons() {
   });
 }
 
+//On / Off button
+$('#power').click(function(){
+  onOff= !onOff;
+  if(onOff == true) {
+    $('.display').addClass('display-on');
+  } else if(onOff == false) {
+    $('.display').removeClass('display-on');
+  }
+})
+
 //assign keyboard events
-//1 kick = 49
-//2 snare = 50
-//3 high-hat = 51
-//4 cymbal = 52
+
 $(document).keypress(function(event){
 
   if(toggleTurn === 1) {
@@ -205,5 +212,12 @@ function comparePattern() {
     audioButton.play();
   }
 
-assignButtons();
-computerTurn();
+
+function Power() {
+  if(onOff == 1) {
+    assignButtons();
+    computerTurn();
+  }
+}
+// assignButtons();
+// computerTurn();

@@ -54,7 +54,7 @@ body {
 }
 
 .display {
-  background-color: yellow;
+  background-color: #666600;
   opacity: .8;
   float: right;
   height: 12%;
@@ -63,6 +63,10 @@ body {
   font-size: 30px;
   text-align: center;
   padding-top: 3%;
+}
+
+.display-on {
+  background-color: yellow;
 }
 
 .pads {
