@@ -9,6 +9,7 @@ var playerPattern = [];
 var buttons= ['b1','b2','b3','b4'];
 var playInterval;
 
+
 //Assign Click Events to Pads
 
 function assignButtons() {
@@ -51,6 +52,7 @@ function assignButtons() {
   });
 }
 
+
 // New Game Button
 
 document.getElementById('newGame').addEventListener('click', function(event){
@@ -62,11 +64,13 @@ document.getElementById('newGame').addEventListener('click', function(event){
   computerTurn();
 });
 
+
 //Functions
 
 function playBack() {
   console.log(computerPattern);
 }
+
 
 //Computer Selects a Random Pad
 
@@ -79,6 +83,7 @@ function chooseRandom() {
     toggleTurn = 1;
   }, 1000);
 }
+
 
 // Computer Plays All Pads in the Computer Pattern Array
 
@@ -135,6 +140,7 @@ function comparePattern() {
     computerTurn();
   }
 }
+
 
 //Drum Sounds
 
