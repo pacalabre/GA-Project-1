@@ -23,25 +23,25 @@ function assignButtons() {
     } else {
       if (padId === 'b1') {
         cymbalSound();
-        $('.display').text('01 Cymbal');
+        $('.display').text('04 Cymbal');
         playerPattern.push('b1');
         comparePattern();
 
       } else if ( padId === 'b2') {
         highHatSound();
-        $('.display').text('02 High-hat');
+        $('.display').text('03 High-hat');
         playerPattern.push('b2');
         comparePattern();
 
       } else if (padId === 'b3') {
         snareSound();
-        $('.display').text('03 Snare');
+        $('.display').text('02 Snare');
         playerPattern.push('b3');
         comparePattern();
 
       } else if (padId === 'b4') {
         kickSound();
-        $('.display').text('04 Kick');
+        $('.display').text('01 Kick');
         playerPattern.push('b4');
         comparePattern();
 
@@ -96,16 +96,16 @@ function playComputerPattern() {
     }
     if (computerPattern[j] === 'b1') {
       cymbalSound();
-      $('.display').text('01 Cymbal');
+      $('.display').text('04 Cymbal');
     } else if(computerPattern[j] == 'b2') {
       highHatSound();
-      $('.display').text('02 High Hat');
+      $('.display').text('03 High-hat');
     } else if(computerPattern[j] == 'b3') {
       snareSound();
-      $('.display').text('03 Snare');
+      $('.display').text('02 Snare');
     } else if (computerPattern[j] == 'b4') {
       kickSound();
-      $('.display').text('04 Kick');
+      $('.display').text('01 Kick');
     } else {
       console.log("none of these");
     }
@@ -131,7 +131,8 @@ function comparePattern() {
       computerPatternCompare = computerPattern[i];
       playerPatternCompare = playerPattern[i];
         if (computerPatternCompare != playerPatternCompare) {
-          return alert("game over, your score is "+ playerTurns);
+          return swal("game over, your score is "+ playerTurns);
+          // return alert("game over, your score is "+ playerTurns);
         }
     }
     playerTurns++;
